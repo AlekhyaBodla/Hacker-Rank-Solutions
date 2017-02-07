@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class Solution {
+
+	public static Node insert(Node head, int data) {
+
+		Node start = null;
+		Node previous = head;
+		if (head != null) {
+			start = head.getNext();
+
+			while (start != null) {
+				previous = start;
+				start = start.getNext();
+			}
+
+			previous.setNext(new Node(data));
+			
+		} else {
+			head = new Node(data);
+		}
+
+		return head;
+	}
+
+	public static void display(Node head) {
+		Node start = head;
+		while (start != null) {
+			System.out.println(start.getData());
+			start = start.getNext();
+		}
+	}
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		Node head = null;
+		int N = sc.nextInt();
+
+		while (N > 0) {
+			int ele = sc.nextInt();
+			head = insert(head, ele);
+			N--;
+		}
+		display(head);
+		sc.close();
+	}
+
+}

@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+/*Bubble sort is a simple sorting algorithm. 
+ * This sorting algorithm is comparison-based algorithm in which
+ *  each pair of adjacent elements is compared and the elements are 
+ *  swapped if they are not in order. This algorithm is not suitable for large data 
+ *  sets as its average and worst case complexity are of Big O of n2 where 
+ *  n is the number of items.
+ *  after every iteration the highest values settles down at the end of the array. 
+ *  Hence, the next iteration need not include already sorted elements*/
+public class BubbleSort {
+
+	public static void main(String[] args) {
+
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt();
+		int a[] = new int[n];
+		for (int a_i = 0; a_i < n; a_i++) {
+			a[a_i] = in.nextInt();
+		}
+
+		in.close();
+		int swap = 0;
+		for (int i = 1; i <= n; i++) {
+			for (int j = 0; j < (n - i); j++) {
+
+				if (a[j] > a[j + 1]) {
+					swap++;
+					int temp = a[j];
+					a[j] = a[j + 1];
+					a[j + 1] = temp;
+				}
+
+			}
+		}
+
+		System.out.println(swap);
+
+	}
+}
